@@ -9,8 +9,8 @@ $base_color: if($variant == "dark", #073642, #fdf6e3);
 $text_color: if($variant == "dark", #eee8d5, #073642);
 $selected_bg_color: #859900;
 $selected_fg_color: #fdf6e3;
-$tooltip_bg_color: $bg_color;
-$tooltip_fg_color: $text_color;
+$tooltip_bg_color: $selected_bg_color;
+$tooltip_fg_color: $selected_fg_color;
 
 // dark colors
 $dark_bg_color: $bg_color;
