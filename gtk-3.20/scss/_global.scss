@@ -32,9 +32,9 @@ $button_border: shade($base_color, .9);
 $entry_border: alpha($dark_shadow, .06);
 
 $scrollbar_bg_color: if($variant == 'light', darken($bg_color, 5%), mix($base_color, $bg_color, .4));
-$scrollbar_slider_color: #859900;
-$scrollbar_slider_hover_color: lighten(#859900, 5%);
-$scrollbar_slider_active_color: lighten(#859900, 10%);
+$scrollbar_slider_color: if($variant == 'light', darken($bg_color, 5%), lighten($bg_color, 5%));
+$scrollbar_slider_hover_color: #859900;
+$scrollbar_slider_active_color: lighten(#859900, 5%);
 
 $switch_disabled_bg_color: #d8d8d8;
 $switch_disabled_border_color: #ccc;
