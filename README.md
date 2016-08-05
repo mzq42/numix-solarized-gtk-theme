@@ -7,6 +7,13 @@
 This is a fork of the Numix GTK theme that replaces the colors of the theme and icons to use the solarized theme with a solarized green accent color.
 This theme supports both the dark and light theme, just as Numix proper.
 
+## Contributing to this fork
+
+Just open an issue or make a PR. You don't have to strictly follow the Numix guidelines, as upstream will probably not care about this fork.
+Changes other than fixing colors to be more solarized are not supposed to be committed here. Use the upstream repo for that.
+
+What follows is the original README from the Numix project.
+
 ### Manual installation
 
 First, you need to compile the theme using the [Sass](http://sass-lang.com/) compiler.
