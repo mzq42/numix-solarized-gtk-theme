@@ -1,6 +1,11 @@
-## Numix
+## Numix Solarized
 ##### A modern flat theme with a combination of light and dark elements. It supports GNOME, Unity, Xfce and Openbox.
 [![By The Numix Project](https://img.shields.io/badge/By-The%20Numix%20Project-red.svg?style=flat-square)](https://numixproject.org/) &nbsp;[![Circle CI](https://img.shields.io/circleci/project/numixproject/numix-gtk-theme/master.svg?circle-token=b14acf911433d315298235b0c2fbf7b2670a92a8&maxAge=2592000&style=flat-square)](https://circleci.com/gh/numixproject/numix-gtk-theme/tree/master) &nbsp;![Supports GTK+ 3.16](https://img.shields.io/badge/GTK%2B-3.16-blue.svg?style=flat-square) &nbsp;![Supports GTK+ 3.20](https://img.shields.io/badge/GTK%2B-3.20-blue.svg?style=flat-square)
+
+### About this fork
+
+This is a fork of the Numix GTK theme that replaces the colors of the theme and icons to use the solarized theme with a solarized green accent color.
+This theme supports both the dark and light theme, just as Numix proper.
 
 ### Manual installation
 
