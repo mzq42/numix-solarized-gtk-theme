@@ -18,7 +18,7 @@
 
         > menuitem {
             min-height: 16px;
-            padding: $spacing ($spacing * 2);
+            padding: ($spacing - 1px) ($spacing - 1px) * 2;
             border: 1px solid transparent;
             background-color: transparent;
             background-image: none;
@@ -43,7 +43,7 @@
 
 @include exports("menu") {
     menu, .menu {
-        padding: $spacing;
+        padding: 0;
         border-radius: 0;
         border: 0;
         background-color: $menu_bg_color;
@@ -54,20 +54,20 @@
         &:selected { background-color: $selected_bg_color; }
 
         // A little hack to get some extra space above/below menuitem separators
-        separator {
-            border-style: none;
-            background-color: transparent;
-            min-height: 5px;
-            border-bottom-style: solid;
-            border-bottom-width: 1px;
-            border-bottom-color: shade($menu_bg_color, ($contrast + .1));
-            padding: 0;
+        separator,
+        .csd & separator {
+            background-color: shade($menu_bg_color, ($contrast + .1));
+            margin: ($spacing - 2px) 0;
         }
+
+        // Firefox workaround
+        .separator,
+        .csd & .separator { color: shade($menu_bg_color, ($contrast + .1)); }
 
         menuitem {
             min-height: 16px;
             min-width: 40px;
-            padding: $spacing;
+            padding: $spacing - 1px;
             border-radius: 0;
 
             &:active, &:hover {
@@ -114,13 +114,29 @@
             }
 
             calendar {
-                &:indeterminate { color: mix($menu_fg_color, $menu_bg_color, .5); }
+                color: $menu_fg_color;
 
-                .button {
-                    border-style: none;
-                    background-color: transparent;
-                    background-image: none;
+                &.header {
+                    border-bottom: 1px solid shade($menu_bg_color, ($contrast + .1));
+                    border-radius: 0;
+
+                    &:backdrop { border-color: shade($menu_bg_color, ($contrast + .1)); }
                 }
+
+                &.button {
+                    @extend %undecorated_button;
+
+                    color: alpha($menu_fg_color, .55);
+
+                    &:hover {
+                        @extend %undecorated_button;
+
+                        color: $menu_fg_color;
+                    }
+                }
+
+                &:indeterminate,
+                &:indeterminate:backdrop { color: mix($menu_fg_color, $menu_bg_color, .5); }
             }
         }
 
@@ -260,9 +276,9 @@
             border-radius: $roundness;
         }
 
-        entry { @include entry($menu_bg_color, $menu_fg_color);  }
+        entry { @include entry($menu_bg_color, $menu_fg_color); }
 
-        button { @include button($menu_bg_color, $menu_fg_color);  }
+        button { @include button($menu_bg_color, $menu_fg_color); }
 
         > list, > .view, > toolbar {
             border-style: none;
@@ -280,7 +296,9 @@
             //@extend %undecorated_button;
 
             &:hover { background-color: $selected_bg_color; color: $selected_fg_color }
+
             &:active, &:selected { &, arrow { @extend %selected_items; } }
+
             &:checked { color: $fg_color; }
 
             // FIXME: temporary workaround
@@ -292,6 +310,7 @@
 
             &.flat arrow {
                 &.left { -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+
                 &.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
             }
         }

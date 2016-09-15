@@ -4,7 +4,7 @@
 
 @include exports("button_extends") {
     // stuff for .needs-attention
-    $_dot_color: if($variant=='light', $selected_bg_color, lighten($selected_bg_color, .15));
+    $_dot_color: if($variant == 'light', $selected_bg_color, lighten($selected_bg_color, .15));
 
     @keyframes needs_attention {
         from {
@@ -19,7 +19,7 @@
     %needs_attention {
         animation: needs_attention 150ms ease-in;
         $_dot_shadow: _text_shadow_color();
-        $_dot_shadow_r: if($variant=='light', .5, .45);
+        $_dot_shadow_r: if($variant == 'light', .5, .45);
         background-image: -gtk-gradient(radial, center center, 0, center center, .5, to($_dot_color), to(transparent)),
                           -gtk-gradient(radial, center center, 0, center center, $_dot_shadow_r, to($_dot_shadow), to(transparent));
         background-size: 6px 6px, 6px 6px;
@@ -43,6 +43,8 @@
     }
 
     %button {
+        min-height: 16px;
+        min-width: 16px;
         padding: $spacing ($spacing + 2px);
         border-width: 1px;
         border-style: solid;
@@ -332,6 +334,15 @@
         }
     }
 
+    &.flat {
+        &:disabled:disabled {
+            background-color: transparent;
+            background-image: none;
+            color: mix($bg, $fg, .5);
+            box-shadow: none;
+        }
+    }
+
     &.separator, .separator {
         border: 1px solid currentColor;
         color: shade($bg, ($contrast + .1));
@@ -363,8 +374,6 @@
     }
 
     button {
-        min-height: 22px;
-        min-width: 24px;
         @include button(shade($bg_color, 1.2), $fg_color);
 
         .inline-toolbar &,
@@ -372,9 +381,13 @@
 
         .linked.vertical > & { @include linked_vertical_button(shade($bg_color, 1.2)); }
 
-        &.circular { // FIXME: aggregate to buttons
-            border-radius: 20px;
-            -gtk-outline-radius: 20px;
+        &.circular,
+        &.circular-button { // FIXME: aggregate to buttons
+            padding: 0;
+            min-width: 28px;
+            min-height: 28px;
+            border-radius: 9999px; // Fixed: https://github.com/GNOME/gtk/commit/a6409458f0d50d673a4dc370b9251993b7835b6b
+            -gtk-outline-radius: 9999px;
 
             label { padding: 0; }
         }
@@ -444,6 +457,12 @@
         }
 
         &.vertical {
+            button, entry {
+                min-width: 0;
+                padding-left: $spacing - 2px;
+                padding-right: $spacing - 2px;
+            }
+
             entry {
                 // reset all the other props since the spinbutton node is styled here
                 border-radius: 0;
@@ -457,7 +476,7 @@
 
                 &.down {
                     border-style: none solid solid solid;
-                    border-radius: 0 0 $roundness $roundness; 
+                    border-radius: 0 0 $roundness $roundness;
                 }
             }
         }
@@ -473,8 +492,8 @@
         button.combo {
             // otherwise the arrow placement is not symmetric
             min-width: 0;
-            padding-left: 8px;
-            padding-right: 8px;
+            padding-left: $spacing + 2px;
+            padding-right: $spacing + 2px;
         }
 
         arrow {
@@ -485,7 +504,7 @@
 
         box button, box entry {
             @extend %linked_button;
-            padding: ($spacing - 2px) ($spacing + 1px);
+            padding: $spacing ($spacing + 2px);
         }
 
         .linked:not(.vertical) > & > box > button.combo {
@@ -502,5 +521,13 @@
         .linked:not(.vertical) > &:last-child > box > button.combo { @extend %linked_button:last-child; }
 
         .linked:not(.vertical) > &:only-child > box > button.combo { @extend %linked_button:only-child; }
+
+        .linked.vertical > & > box > button.combo { @extend %linked_vertical_middle; }
+
+        .linked.vertical > &:first-child > box > button.combo { @extend %linked_vertical_button:first-child; }
+
+        .linked.vertical > &:last-child > box > button.combo { @extend %linked_vertical_button:last-child; }
+
+        .linked.vertical > &:only-child > box > button.combo { @extend %linked_vertical_button:only-child; }
     }
 }

@@ -184,6 +184,15 @@
         }
     }
 
+    &.flat {
+        &:insensitive:insensitive {
+            background-color: transparent;
+            background-image: none;
+            color: mix($bg, $fg, .5);
+            box-shadow: none;
+        }
+    }
+
     &.separator, .separator {
         border: 1px solid currentColor;
         color: shade($bg, ($contrast + .1));

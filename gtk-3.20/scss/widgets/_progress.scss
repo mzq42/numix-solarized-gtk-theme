@@ -20,8 +20,6 @@
             progress { min-width: 6px; }
         }
 
-        &.osd { min-height: 4px; }
-
         trough {
             border: 1px solid alpha(border_normal($bg_color), .5);
             background-color: shade($bg_color, 1.08);
@@ -147,19 +145,18 @@
 
         min-height: 10px;
         min-width: 10px;
+        padding: $spacing;
 
         &.horizontal {
-            padding: 6px 0;
+            trough { padding: 0 3px; }
 
-            trough { padding: 0 7px; }
-            highlight, fill { margin: 0 -7px; }
+            highlight, fill { margin: 0 -4px; }
         }
 
         &.vertical {
-            padding: 0 6px;
+            trough { padding: 3px 0; }
 
-            trough { padding: 7px 0; }
-            highlight, fill { margin: -7px 0; }
+            highlight, fill { margin: -4px 0; }
         }
 
         // The slider is inside the trough, negative margin to make it bigger
@@ -171,20 +168,10 @@
 
         // Click-and-hold the slider to activate
         &.fine-tune {
-            &.horizontal {
-                padding-top: 4px;
-                padding-bottom: 4px;
-                min-height: 15px;
-            }
-
-            &.vertical {
-                padding-left: 4px;
-                padding-right: 4px;
-                min-width: 15px;
-            }
-
             // Make the trough grow in fine-tune mode
-            slider { margin: -4px; }
+            slider { margin: -7px; }
+
+            highlight { background-color: shade($selected_bg_color, 1.1); }
 
             fill,
             highlight,
@@ -214,6 +201,7 @@
             }
 
             // Troughs in selected list-rows and infobars
+            menuitem:hover &,
             row:selected &,
             infobar & {
                 background-color: transparentize($black, .8);
@@ -269,6 +257,7 @@
             }
 
             // Selected list-row and infobar sliders
+            menuitem:hover &,
             row:selected &,
             infobar & {
                 background-clip: border-box;
