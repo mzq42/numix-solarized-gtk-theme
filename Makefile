@@ -7,7 +7,7 @@ DIST_DIR=$(RES_DIR)/dist
 RES_DIR320=src/gtk-3.20
 SCSS_DIR320=$(RES_DIR320)/scss
 DIST_DIR320=$(RES_DIR320)/dist
-INSTALL_DIR=$(DESTDIR)/usr/share/themes/NumixSolarized
+INSTALL_DIR=$(DESTDIR)/usr/share/themes
 UTILS=scripts/utils.sh
 
 all: clean gresource
@@ -33,7 +33,14 @@ clean:
 	rm -f $(RES_DIR320)/gtk.gresource
 
 install: all
-	$(UTILS) install $(INSTALL_DIR)
+	$(UTILS) install $(INSTALL_DIR)/NumixSolarized
+	rm $(INSTALL_DIR)/NumixSolarized/index-dark.theme
+	rm $(INSTALL_DIR)/NumixSolarized/gtk-2.0/gtkrc-dark
+	$(UTILS) install $(INSTALL_DIR)/NumixSolarizedDark
+	mv $(INSTALL_DIR)/NumixSolarizedDark/index{-dark,}.theme
+	mv $(INSTALL_DIR)/NumixSolarizedDark/gtk-2.0/gtkrc{-dark,}
+	cp $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.0/gtk{-dark,}.css
+	cp $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.20/gtk{-dark,}.css
 
 uninstall:
 	rm -rf $(INSTALL_DIR)

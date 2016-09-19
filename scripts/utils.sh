@@ -8,6 +8,7 @@ do_install() {
 
 	install -dm755 "${INSTALL_DIR}"
 	cp index.theme "${INSTALL_DIR}"
+	cp index-dark.theme "${INSTALL_DIR}"
 
 	for _DIR in "${GTKDIR}" "${GTK320DIR}"
 	do
