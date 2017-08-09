@@ -7,20 +7,26 @@ DIST_DIR=$(RES_DIR)/dist
 RES_DIR320=src/gtk-3.20
 SCSS_DIR320=$(RES_DIR320)/scss
 DIST_DIR320=$(RES_DIR320)/dist
-INSTALL_DIR=$(DESTDIR)/usr/share/themes/Numix
 ROOT_DIR=${PWD}
 UTILS=scripts/utils.sh
+ASSETS=scripts/render-assets.sh
 COLORS=scripts/colors.py
-THEME=numix
+THEME=Standard
+INSTALL_DIR=$(DESTDIR)/usr/share/themes/Numix$(THEME)
 
 all: clean gresource
 
 preprocess:
-	$(COLORS) theme_colors.$(THEME) src/gtk-2.0/gtkrc.in src/gtk-2.0/gtkrc
-	$(COLORS) theme_colors.$(THEME) $(SCSS_DIR320)/_global.scss.in $(SCSS_DIR320)/_global.scss
-	$(COLORS) theme_colors.$(THEME) $(SCSS_DIR)/_global.scss.in $(SCSS_DIR)/_global.scss
+	$(COLORS) $(THEME).colors src/index.theme.in src/index.theme
+	$(COLORS) $(THEME).colors src/assets/all-assets.svg.in src/assets/all-assets.svg
+	$(COLORS) $(THEME).colors src/gtk-2.0/gtkrc.in src/gtk-2.0/gtkrc
+	$(COLORS) $(THEME).colors $(SCSS_DIR320)/_global.scss.in $(SCSS_DIR320)/_global.scss
+	$(COLORS) $(THEME).colors $(SCSS_DIR)/_global.scss.in $(SCSS_DIR)/_global.scss
 
-css: preprocess
+assets: preprocess
+	$(ASSETS)
+
+css: preprocess assets
 	$(SASS) --update $(SASSFLAGS) $(SCSS_DIR):$(DIST_DIR)
 	$(SASS) --update $(SASSFLAGS) $(SCSS_DIR320):$(DIST_DIR320)
 
@@ -35,6 +41,7 @@ watch: clean
 	done
 
 clean:
+	rm -f src/assets/*.png
 	rm -rf $(DIST_DIR)
 	rm -f $(RES_DIR)/gtk.gresource
 	rm -rf $(DIST_DIR320)

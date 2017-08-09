@@ -3,9 +3,9 @@
 INKSCAPE="/usr/bin/inkscape"
 OPTIPNG="/usr/bin/optipng"
 
-SRC_FILE="../src/assets/all-assets.svg"
-ASSETS_DIR="../src/assets"
-INDEX="../src/assets/all-assets.txt"
+SRC_FILE="src/assets/all-assets.svg"
+ASSETS_DIR="src/assets"
+INDEX="src/assets/all-assets.txt"
 
 for i in `cat $INDEX`
 do 

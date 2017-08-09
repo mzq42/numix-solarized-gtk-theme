@@ -1,6 +1,6 @@
 # Numix GTK Theme
 
-gtk-color-scheme = "bg_color:@BG_COLOR_LIGHT@\nfg_color:@FG_COLOR_LIGHT@\nbase_color:@BASE_COLOR_LIGHT@\ntext_color:@TEXT_COLOR_LIGHT@\nselected_bg_color:@SELECTED_BG_COLOR@\nselected_fg_color:@SELECTED_FG_COLOR@\ntooltip_bg_color:@TOOLTIP_BG_COLOR@\ntooltip_fg_color:@TOOLTIP_FG_COLOR@\ntitlebar_bg_color:@DARK_BG_COLOR_LIGHT@\ntitlebar_fg_color:@DARK_FG_COLOR_LIGHT@\nmenubar_bg_color:@DARK_BG_COLOR_LIGHT@\nmenubar_fg_color:@DARK_FG_COLOR_LIGHT@\ntoolbar_bg_color:@BG_COLOR_LIGHT@\ntoolbar_fg_color:@FG_COLOR_LIGHT@\nmenu_bg_color:@DARK_BG_COLOR_LIGHT@\nmenu_fg_color:@DARK_FG_COLOR_LIGHT@\npanel_bg_color:@DARK_BG_COLOR_LIGHT@\npanel_fg_color:@DARK_FG_COLOR_LIGHT@\nlink_color:@LINK_COLOR@"
+gtk-color-scheme = "bg_color:@BG_COLOR_LIGHT@\nfg_color:@FG_COLOR_LIGHT@\nbase_color:@BASE_COLOR_LIGHT@\ntext_color:@TEXT_COLOR_LIGHT@\nselected_bg_color:@SELECTED_BG_COLOR@\nselected_fg_color:@SELECTED_FG_COLOR@\ntooltip_bg_color:@TOOLTIP_BG_COLOR@\ntooltip_fg_color:@TOOLTIP_FG_COLOR@\ntitlebar_bg_color:@DARK_BG_COLOR_LIGHT@\ntitlebar_fg_color:@DARK_FG_COLOR_LIGHT@\nmenubar_bg_color:@DARK_BG_COLOR_LIGHT@\nmenubar_fg_color:@DARK_FG_COLOR_LIGHT@\ntoolbar_bg_color:@BG_COLOR_LIGHT@\ntoolbar_fg_color:@FG_COLOR_LIGHT@\nmenu_bg_color:@DARK_BG_COLOR_LIGHT@\nmenu_fg_color:@DARK_FG_COLOR_LIGHT@\npanel_bg_color:@DARK_BG_COLOR_LIGHT@\npanel_fg_color:@DARK_FG_COLOR_LIGHT@\nlink_color:@LINK_COLOR_LIGHT@"
 
 gtk-icon-sizes = "inkscape-decoration=16,16:gtk-small-toolbar=16,16"
 
