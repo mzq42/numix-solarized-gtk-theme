@@ -41,12 +41,14 @@ watch: clean
 	done
 
 clean:
-	rm -f src/assets/*.png
 	rm -rf $(DIST_DIR)
 	rm -f $(RES_DIR)/gtk.gresource
 	rm -rf $(DIST_DIR320)
 	rm -f $(RES_DIR320)/gtk.gresource
 	rm -rf $(ROOT_DIR)/dist
+	rm -f src/index.theme
+	rm -f src/assets/all-assets.svg
+	rm -f src/assets/*.png
 	rm -f src/gtk-2.0/gtkrc
 	rm -f $(SCSS_DIR)/_global.scss
 	rm -f $(SCSS_DIR320)/_global.scss
