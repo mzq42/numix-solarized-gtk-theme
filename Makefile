@@ -10,10 +10,17 @@ DIST_DIR320=$(RES_DIR320)/dist
 INSTALL_DIR=$(DESTDIR)/usr/share/themes/Numix
 ROOT_DIR=${PWD}
 UTILS=scripts/utils.sh
+COLORS=scripts/colors.py
+THEME=numix
 
 all: clean gresource
 
-css:
+preprocess:
+	$(COLORS) theme_colors.$(THEME) src/gtk-2.0/gtkrc.in src/gtk-2.0/gtkrc
+	$(COLORS) theme_colors.$(THEME) $(SCSS_DIR320)/_global.scss.in $(SCSS_DIR320)/_global.scss
+	$(COLORS) theme_colors.$(THEME) $(SCSS_DIR)/_global.scss.in $(SCSS_DIR)/_global.scss
+
+css: preprocess
 	$(SASS) --update $(SASSFLAGS) $(SCSS_DIR):$(DIST_DIR)
 	$(SASS) --update $(SASSFLAGS) $(SCSS_DIR320):$(DIST_DIR320)
 
@@ -33,6 +40,9 @@ clean:
 	rm -rf $(DIST_DIR320)
 	rm -f $(RES_DIR320)/gtk.gresource
 	rm -rf $(ROOT_DIR)/dist
+	rm -f src/gtk-2.0/gtkrc
+	rm -f $(SCSS_DIR)/_global.scss
+	rm -f $(SCSS_DIR320)/_global.scss
 
 install: all
 	$(UTILS) install $(INSTALL_DIR)
@@ -50,6 +60,7 @@ zip: all
 
 
 .PHONY: all
+.PHONY: preprocess
 .PHONY: css
 .PHONY: watch
 .PHONY: gresource
