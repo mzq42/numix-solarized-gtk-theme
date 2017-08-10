@@ -11,17 +11,14 @@ ROOT_DIR=${PWD}
 UTILS=scripts/utils.sh
 ASSETS=scripts/render-assets.sh
 COLORS=scripts/colors.py
+PATCH=scripts/patch.sh
 THEME=Standard
 INSTALL_DIR=$(DESTDIR)/usr/share/themes/Numix$(THEME)
 
 all: clean gresource
 
 preprocess:
-	$(COLORS) $(THEME).colors src/index.theme.in src/index.theme
-	$(COLORS) $(THEME).colors src/assets/all-assets.svg.in src/assets/all-assets.svg
-	$(COLORS) $(THEME).colors src/gtk-2.0/gtkrc.in src/gtk-2.0/gtkrc
-	$(COLORS) $(THEME).colors $(SCSS_DIR320)/_global.scss.in $(SCSS_DIR320)/_global.scss
-	$(COLORS) $(THEME).colors $(SCSS_DIR)/_global.scss.in $(SCSS_DIR)/_global.scss
+	$(PATCH) patch "$(THEME).colors"
 
 assets: preprocess
 	$(ASSETS)
@@ -46,12 +43,8 @@ clean:
 	rm -rf $(DIST_DIR320)
 	rm -f $(RES_DIR320)/gtk.gresource
 	rm -rf $(ROOT_DIR)/dist
-	rm -f src/index.theme
-	rm -f src/assets/all-assets.svg
 	rm -f src/assets/*.png
-	rm -f src/gtk-2.0/gtkrc
-	rm -f $(SCSS_DIR)/_global.scss
-	rm -f $(SCSS_DIR320)/_global.scss
+	$(PATCH) clean
 
 install: all
 	$(UTILS) install $(INSTALL_DIR)
