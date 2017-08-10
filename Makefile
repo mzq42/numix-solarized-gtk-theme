@@ -48,6 +48,7 @@ clean:
 
 install: all
 	$(UTILS) install $(INSTALL_DIR)
+	find $(INSTALL_DIR) -name '*.in' -delete
 
 uninstall:
 	rm -rf $(INSTALL_DIR)
