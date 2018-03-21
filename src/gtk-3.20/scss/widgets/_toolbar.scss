@@ -123,7 +123,6 @@
     %toolbar {
         padding: $spacing - 1px;
         border-style: none;
-        -gtk-icon-style: symbolic;
 
         // toolbar separators
         &.horizontal separator { margin: 0 ($spacing + 2px) 1px; }
