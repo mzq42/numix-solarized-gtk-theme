@@ -12,7 +12,6 @@ do
 if [ -f $ASSETS_DIR/$i.png ]; then
     echo $ASSETS_DIR/$i.png exists.
 else
-    echo
     echo Rendering $ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
@@ -22,7 +21,6 @@ fi
 if [ -f $ASSETS_DIR/$i@2.png ]; then
     echo $ASSETS_DIR/$i@2.png exists.
 else
-    echo
     echo Rendering $ASSETS_DIR/$i@2.png
     $INKSCAPE --export-id=$i \
               --export-dpi=180 \
