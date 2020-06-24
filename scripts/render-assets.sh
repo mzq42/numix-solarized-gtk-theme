@@ -2,7 +2,7 @@
 
 detect_inkscape_version() {
     echo "render-assets: checking inkscape version"
-    INKSCAPE_VERSION="$(inkscape --version |& head -n1 | cut -d\  -f1)"
+    INKSCAPE_VERSION="$(inkscape --version |& head -n1 | cut -d\  -f2)"
     INKSCAPE_VERSION_MAJOR="$(cut -d. -f1 <<< "$INKSCAPE_VERSION")"
     INKSCAPE_VERSION_MINOR="$(cut -d. -f2 <<< "$INKSCAPE_VERSION")"
     INKSCAPE_VERSION_PATCH="$(cut -d. -f3 <<< "$INKSCAPE_VERSION")"
