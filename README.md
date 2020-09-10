@@ -21,6 +21,16 @@ a light and dark theme with multiple available accent colors.
 - Dark
 - Light with dark top (experimental, currently only with Blue accent color)
 
+## Screenshots
+
+### Light Green
+
+![Light Green theme on Ubuntu 20.04](https://i.imgur.com/485aOGM.png)
+
+### Dark Magenta
+
+![Dark Magenta theme on Ubuntu 20.04](https://i.imgur.com/7UaqsWp.png)
+
 ## Installation Instructions
 
 ### Release Archives
