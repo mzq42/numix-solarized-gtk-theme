@@ -1,4 +1,63 @@
-## Numix
+# Numix Solarized
+
+Numix Solarized is a fork of the Numix GTK theme with a focus on the
+[Solarized](https://ethanschoonover.com/solarized/) color scheme. It provides
+a light and dark theme with multiple available accent colors.
+
+## Color Options
+
+- Yellow
+- Orange
+- Red
+- Magenta
+- Violet
+- Blue
+- Cyan
+- Green
+
+## Brightness Options
+
+- Light
+- Dark
+- Light with dark top (experimental, currently only with Blue accent color)
+
+## Installation Instructions
+
+### Release Archives
+
+Infrequent releases are available pre-built for download on the
+[Releases](https://github.com/Ferdi265/numix-solarized-gtk-theme/releases) page.
+
+Install them by copying the individual theme folders into `/usr/share/themes/`.
+
+### AUR
+
+This theme is available on the Arch User Repository:
+
+- [gtk-theme-numix-solarized](https://aur.archlinux.org/packages/gtk-theme-numix-solarized/)
+  for release packages
+- [gtk-theme-numix-solarized-git](https://aur.archlinux.org/packages/gtk-theme-numix-solarized-git/)
+  for the latest commit of this repository
+
+### Building it yourself
+
+For building this theme, you need the following programs:
+
+- `make`
+- `sassc`
+- `inkscape` (0.9x or 1.x)
+- `glib-compile-resources` from `glib2`
+
+Then, run `make THEME=$ThemeVariant install`, where `$ThemeVariant` is the name
+(without extension) of one of the `*.color` files in this repository.
+Optionally, you can also provide a value for `DESTDIR` to specify an alternate
+installation directory.
+
+Note: Make sure to _not_ run `make` with additional threads, as the `Makefile`
+is not robust to being used with multiple threads. To be sure, you can replace
+`make` with `make -j1`.
+
+## Numix (original README)
 ##### A modern flat theme with a combination of light and dark elements. It supports GNOME, Unity, Xfce and Openbox.
 [![By The Numix Project](https://img.shields.io/badge/By-The%20Numix%20Project-f0544c.svg?style=flat-square)](https://numixproject.org/) &nbsp;[![Circle CI](https://img.shields.io/circleci/project/numixproject/numix-gtk-theme/master.svg?circle-token=b14acf911433d315298235b0c2fbf7b2670a92a8&maxAge=3600&style=flat-square)](https://circleci.com/gh/numixproject/numix-gtk-theme/tree/master) &nbsp;[![GitHub release](https://img.shields.io/github/release/numixproject/numix-gtk-theme.svg?maxAge=3600&style=flat-square)](https://github.com/numixproject/numix-gtk-theme/releases/latest) &nbsp;![Supports GTK+ 3.18](https://img.shields.io/badge/GTK%2B-3.18-4a90d9.svg?style=flat-square) &nbsp;![Supports GTK+ 3.24](https://img.shields.io/badge/GTK%2B-3.24-4a90d9.svg?style=flat-square)
 
