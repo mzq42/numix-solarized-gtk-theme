@@ -25,9 +25,13 @@ a light and dark theme with multiple available accent colors.
 
 ### Light Green
 
+with Numix Light icon theme
+
 ![Light Green theme on Ubuntu 20.04](https://i.imgur.com/485aOGM.png)
 
 ### Dark Magenta
+
+with Numix icon theme
 
 ![Dark Magenta theme on Ubuntu 20.04](https://i.imgur.com/7UaqsWp.png)
 
